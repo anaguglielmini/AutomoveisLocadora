@@ -55,3 +55,4 @@ select * from pagamento;
 select * from aluguel;
 select * from cad_cliente;
 select * from cad_veiculo;
+
