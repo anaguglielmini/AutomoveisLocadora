@@ -16,5 +16,10 @@ namespace AutomoveisLocadora
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            DB.Run("drop table cad_veiculo");
+        }
     }
 }

@@ -9,14 +9,14 @@ using MySql.Data.MySqlClient;
 
 namespace AutomoveisLocadora
 {
-    static class BD
+    public static class DB
     {
         private static string connStr;
         private static MySqlConnection conn;
 
         public static void Start()
         {
-            connStr = "server=localhost;user=root;database=qts_aluguel_carros;port=3306;password=root;convert zero datetime=True;";
+            connStr = "server=localhost;user=root;database=locadoradb;port=3306;password=root;convert zero datetime=True;";
             conn = new MySqlConnection(connStr);
 
             try
@@ -34,17 +34,13 @@ namespace AutomoveisLocadora
             Console.WriteLine("Connection Done.");
         }
 
-        public static void Run(string strSQL, MySqlParameter[] parameters)
+        public static void Run(string strSQL)
         {
             try
             {
                 CheckState();
 
                 MySqlCommand cmd = new MySqlCommand(strSQL, conn);
-                foreach (MySqlParameter param in parameters)
-                {
-                    cmd.Parameters.Add(param);
-                }
 
                 cmd.ExecuteNonQuery();
             }
@@ -54,17 +50,13 @@ namespace AutomoveisLocadora
             }
         }
 
-        public static MySqlDataReader Read(string strSQL, MySqlParameter[] parameters)
+        public static MySqlDataReader Read(string strSQL)
         {
             try
             {
                 CheckState();
 
                 MySqlCommand cmd = new MySqlCommand(strSQL, conn);
-                foreach (MySqlParameter param in parameters)
-                {
-                    cmd.Parameters.Add(param);
-                }
 
                 MySqlDataReader rdr = cmd.ExecuteReader(); // REMEMBER TO CLOSE READER AFTER DOING ANY OTHER SQL OPERATION PLEASE!!!!
 

@@ -16,6 +16,7 @@ namespace AutomoveisLocadora
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            DB.Start();
             Application.Run(new Form1());
         }
     }
