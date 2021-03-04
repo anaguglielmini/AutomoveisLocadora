@@ -29,3 +29,5 @@ values ('del0142', 'Cinza, duas portas, viaja no tempo', 'Delorian', 'DMC','1000
 
 select * from cad_veiculo;
 
+
+
