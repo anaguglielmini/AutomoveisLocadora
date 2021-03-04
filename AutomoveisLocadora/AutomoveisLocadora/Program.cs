@@ -17,7 +17,7 @@ namespace AutomoveisLocadora
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             DB.Start();
-            Application.Run(new Form1());
+            Application.Run(new Main());
         }
     }
 }

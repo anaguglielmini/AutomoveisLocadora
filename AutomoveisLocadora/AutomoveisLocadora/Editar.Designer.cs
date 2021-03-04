@@ -47,11 +47,13 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.lblMulta = new System.Windows.Forms.Label();
             this.txtMulta = new System.Windows.Forms.TextBox();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(453, 310);
+            this.btnSalvar.Location = new System.Drawing.Point(559, 331);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(90, 36);
             this.btnSalvar.TabIndex = 27;
@@ -61,7 +63,7 @@
             // lblModelo
             // 
             this.lblModelo.AutoSize = true;
-            this.lblModelo.Location = new System.Drawing.Point(25, 283);
+            this.lblModelo.Location = new System.Drawing.Point(41, 304);
             this.lblModelo.Name = "lblModelo";
             this.lblModelo.Size = new System.Drawing.Size(42, 13);
             this.lblModelo.TabIndex = 26;
@@ -69,7 +71,7 @@
             // 
             // txtModelo
             // 
-            this.txtModelo.Location = new System.Drawing.Point(28, 299);
+            this.txtModelo.Location = new System.Drawing.Point(44, 320);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(110, 20);
             this.txtModelo.TabIndex = 25;
@@ -77,7 +79,7 @@
             // lblPreco
             // 
             this.lblPreco.AutoSize = true;
-            this.lblPreco.Location = new System.Drawing.Point(25, 333);
+            this.lblPreco.Location = new System.Drawing.Point(41, 354);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(35, 13);
             this.lblPreco.TabIndex = 24;
@@ -85,7 +87,7 @@
             // 
             // txtPreco
             // 
-            this.txtPreco.Location = new System.Drawing.Point(28, 349);
+            this.txtPreco.Location = new System.Drawing.Point(44, 370);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(110, 20);
             this.txtPreco.TabIndex = 23;
@@ -93,7 +95,7 @@
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(28, 231);
+            this.lblMarca.Location = new System.Drawing.Point(44, 252);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(37, 13);
             this.lblMarca.TabIndex = 22;
@@ -101,7 +103,7 @@
             // 
             // txtMarca
             // 
-            this.txtMarca.Location = new System.Drawing.Point(28, 247);
+            this.txtMarca.Location = new System.Drawing.Point(44, 268);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(110, 20);
             this.txtMarca.TabIndex = 21;
@@ -109,7 +111,7 @@
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(28, 84);
+            this.lblDesc.Location = new System.Drawing.Point(44, 105);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(110, 13);
             this.lblDesc.TabIndex = 20;
@@ -118,7 +120,7 @@
             // lblPlaca
             // 
             this.lblPlaca.AutoSize = true;
-            this.lblPlaca.Location = new System.Drawing.Point(25, 34);
+            this.lblPlaca.Location = new System.Drawing.Point(41, 55);
             this.lblPlaca.Name = "lblPlaca";
             this.lblPlaca.Size = new System.Drawing.Size(34, 13);
             this.lblPlaca.TabIndex = 19;
@@ -126,7 +128,7 @@
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(28, 100);
+            this.txtDesc.Location = new System.Drawing.Point(44, 121);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(228, 118);
@@ -134,7 +136,7 @@
             // 
             // txtPlaca
             // 
-            this.txtPlaca.Location = new System.Drawing.Point(28, 50);
+            this.txtPlaca.Location = new System.Drawing.Point(44, 71);
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(110, 20);
             this.txtPlaca.TabIndex = 17;
@@ -142,24 +144,22 @@
             // lblDisp
             // 
             this.lblDisp.AutoSize = true;
-            this.lblDisp.Location = new System.Drawing.Point(433, 34);
+            this.lblDisp.Location = new System.Drawing.Point(449, 55);
             this.lblDisp.Name = "lblDisp";
             this.lblDisp.Size = new System.Drawing.Size(78, 13);
             this.lblDisp.TabIndex = 29;
             this.lblDisp.Text = "Disponibilidade";
-            this.lblDisp.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtDisp
             // 
-            this.txtDisp.Location = new System.Drawing.Point(433, 50);
+            this.txtDisp.Location = new System.Drawing.Point(449, 71);
             this.txtDisp.Name = "txtDisp";
             this.txtDisp.Size = new System.Drawing.Size(110, 20);
             this.txtDisp.TabIndex = 28;
-            this.txtDisp.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(433, 115);
+            this.dateTimePicker1.Location = new System.Drawing.Point(449, 136);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 30;
@@ -167,7 +167,7 @@
             // lblRetirada
             // 
             this.lblRetirada.AutoSize = true;
-            this.lblRetirada.Location = new System.Drawing.Point(430, 84);
+            this.lblRetirada.Location = new System.Drawing.Point(446, 105);
             this.lblRetirada.Name = "lblRetirada";
             this.lblRetirada.Size = new System.Drawing.Size(47, 13);
             this.lblRetirada.TabIndex = 31;
@@ -176,7 +176,7 @@
             // lblDevo
             // 
             this.lblDevo.AutoSize = true;
-            this.lblDevo.Location = new System.Drawing.Point(430, 157);
+            this.lblDevo.Location = new System.Drawing.Point(446, 178);
             this.lblDevo.Name = "lblDevo";
             this.lblDevo.Size = new System.Drawing.Size(59, 13);
             this.lblDevo.TabIndex = 33;
@@ -184,7 +184,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(433, 188);
+            this.dateTimePicker2.Location = new System.Drawing.Point(449, 209);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 32;
@@ -192,7 +192,7 @@
             // lblMulta
             // 
             this.lblMulta.AutoSize = true;
-            this.lblMulta.Location = new System.Drawing.Point(430, 231);
+            this.lblMulta.Location = new System.Drawing.Point(446, 252);
             this.lblMulta.Name = "lblMulta";
             this.lblMulta.Size = new System.Drawing.Size(36, 13);
             this.lblMulta.TabIndex = 34;
@@ -200,17 +200,38 @@
             // 
             // txtMulta
             // 
-            this.txtMulta.Location = new System.Drawing.Point(474, 231);
+            this.txtMulta.Location = new System.Drawing.Point(490, 252);
             this.txtMulta.Name = "txtMulta";
             this.txtMulta.ReadOnly = true;
             this.txtMulta.Size = new System.Drawing.Size(110, 20);
             this.txtMulta.TabIndex = 35;
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(449, 331);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(90, 36);
+            this.btnExcluir.TabIndex = 36;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Location = new System.Drawing.Point(12, 12);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltar.TabIndex = 37;
+            this.btnVoltar.Text = "Voltar -->";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            // 
             // Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 422);
+            this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.txtMulta);
             this.Controls.Add(this.lblMulta);
             this.Controls.Add(this.lblDevo);
@@ -258,5 +279,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label lblMulta;
         private System.Windows.Forms.TextBox txtMulta;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }
