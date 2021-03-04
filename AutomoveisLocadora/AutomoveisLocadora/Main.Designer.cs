@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.btnPesquisar = new System.Windows.Forms.MaskedTextBox();
+            this.txtPesquisar = new System.Windows.Forms.MaskedTextBox();
             this.lblPesquisar = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblMarca = new System.Windows.Forms.Label();
             this.lblModelo = new System.Windows.Forms.Label();
             this.lblPlaca = new System.Windows.Forms.Label();
@@ -45,7 +44,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCriar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lbCarros = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -57,12 +56,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Locadora de Vrum Vrum";
             // 
-            // btnPesquisar
+            // txtPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(47, 72);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(317, 20);
-            this.btnPesquisar.TabIndex = 1;
+            this.txtPesquisar.Location = new System.Drawing.Point(47, 72);
+            this.txtPesquisar.Name = "txtPesquisar";
+            this.txtPesquisar.Size = new System.Drawing.Size(317, 20);
+            this.txtPesquisar.TabIndex = 1;
             // 
             // lblPesquisar
             // 
@@ -72,15 +71,6 @@
             this.lblPesquisar.Size = new System.Drawing.Size(53, 13);
             this.lblPesquisar.TabIndex = 2;
             this.lblPesquisar.Text = "Pesquisar";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(47, 115);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(317, 279);
-            this.dataGridView1.TabIndex = 3;
             // 
             // lblMarca
             // 
@@ -189,6 +179,7 @@
             this.btnCriar.TabIndex = 37;
             this.btnCriar.Text = "Novo Veículo";
             this.btnCriar.UseVisualStyleBackColor = true;
+            this.btnCriar.Click += new System.EventHandler(this.btnCriar_Click);
             // 
             // btnExcluir
             // 
@@ -199,11 +190,20 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             // 
+            // lbCarros
+            // 
+            this.lbCarros.FormattingEnabled = true;
+            this.lbCarros.Location = new System.Drawing.Point(47, 115);
+            this.lbCarros.Name = "lbCarros";
+            this.lbCarros.Size = new System.Drawing.Size(317, 264);
+            this.lbCarros.TabIndex = 39;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 468);
+            this.Controls.Add(this.lbCarros);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnCriar);
             this.Controls.Add(this.btnEditar);
@@ -217,14 +217,12 @@
             this.Controls.Add(this.lblPlaca);
             this.Controls.Add(this.lblModelo);
             this.Controls.Add(this.lblMarca);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblPesquisar);
-            this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.label1);
             this.Name = "Main";
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,9 +231,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox btnPesquisar;
+        private System.Windows.Forms.MaskedTextBox txtPesquisar;
         private System.Windows.Forms.Label lblPesquisar;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Label lblModelo;
         private System.Windows.Forms.Label lblPlaca;
@@ -249,6 +246,7 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnCriar;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.ListBox lbCarros;
     }
 }
 

@@ -8,5 +8,11 @@ namespace AutomoveisLocadora
 {
     class Veiculo
     {
+        public string placaV, descV, marcaV, modeloV;
+        public int Id;
+        public double precoV;
+        public bool statusV;
+        public DateTime retiradaV, devolucaoV = DateTime.Now.Date;
+
     }
 }

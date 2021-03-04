@@ -16,7 +16,7 @@ namespace AutomoveisLocadora
 
         public static void Start()
         {
-            connStr = "server=localhost;user=root;database=locadoradb;port=3306;password=root;convert zero datetime=True;";
+            connStr = "server=localhost;user=root;database=locadoradb;port=3306;password=macacoleproso;convert zero datetime=True;";
             conn = new MySqlConnection(connStr);
 
             try
@@ -50,7 +50,7 @@ namespace AutomoveisLocadora
             }
         }
 
-        public static MySqlDataReader Read(string strSQL)
+        public static MySqlDataReader Read(string strSQL, MySqlParameter[] mySqlParameter)
         {
             try
             {
