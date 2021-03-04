@@ -28,12 +28,3 @@ insert into cad_veiculo (placa_veiculo, desc_veiculo, marca_veiculo, modelo_veic
 values ('del0142', 'Cinza, duas portas, viaja no tempo', 'Delorian', 'DMC','10000', '1', '2021-01-03', '2021-01-20', null);
 
 select * from cad_veiculo;
-
-
-
-
-
-
-
-
-
