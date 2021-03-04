@@ -20,7 +20,7 @@ namespace AutomoveisLocadora
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MySqlDataReader reader = DB.Read("SELECT id, model from cars WHERE LOWER(license_plate) LIKE LOWER(?search) OR LOWER(model) LIKE LOWER(?search);", new MySqlParameter[] { new MySqlParameter("search", ("%" + TxtGeneralSearch.Text) + "%") });
+            MySqlDataReader reader = DB.Read("SELECT id, model from Veiculo WHERE LOWER(license_plate) LIKE LOWER(?search) OR LOWER(model) LIKE LOWER(?search);", new MySqlParameter[] { new MySqlParameter("search", ("%" + TxtGeneralSearch.Text) + "%") });
 
             if (reader != null)
             {
