@@ -33,8 +33,24 @@ namespace AutomoveisLocadora
                 while (reader.Read())
                 {
                     this.Id = reader.GetInt32(0);
+                    this.PlacaV = reader.GetString(1);
+                    this.DescV = reader.GetString(2);
+                    this.MarcaV = reader.GetString(3);
+                    this.ModeloV = reader.GetString(4);
+                    this.PrecoV = reader.GetInt32(5);
 
+                    if (!reader.IsDBNull(6))
+                    {
+                        this.StatusV = true;
+                        this.RetiradaV = reader.GetDateTime(6);
+                        this.DevolucaoV = reader.GetDateTime(7);
+                    }
+                    else
+                    {
+                        this.StatusV = false;
+                    }
                 }
+                reader.Close();
             }
         }
     }
