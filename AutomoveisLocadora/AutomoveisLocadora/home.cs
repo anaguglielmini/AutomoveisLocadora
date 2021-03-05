@@ -96,5 +96,12 @@ namespace AutomoveisLocadora
             this.Hide();
             add.Show();
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            v.Excluir();
+            MessageBox.Show("Veiculo deletado!");
+            CarregarDataGrid();
+        }
     }
 }

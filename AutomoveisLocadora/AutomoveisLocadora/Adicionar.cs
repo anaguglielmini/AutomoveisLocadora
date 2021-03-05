@@ -26,6 +26,7 @@ namespace AutomoveisLocadora
             txtMarca.Text = v.MarcaV;
             txtModelo.Text = v.ModeloV;
             txtPreco.Text = v.PrecoV.ToString();
+            v.StatusV = false;
 
             v.Salvar();
         }

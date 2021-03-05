@@ -51,14 +51,14 @@ namespace AutomoveisLocadora
         }
         public void Excluir()
         {
-            MySqlDataReader reader = DB.Read("select id_veiculo from cad_veiculo where cad_veiculo.id_veiculo = ?id_veiculo", new MySqlParameter[] { new MySqlParameter("id_veiculo", Id) });
+            MySqlDataReader reader = DB.Read("select id_veiculo from cad_veiculo WHERE cad_veiculo.id_veiculo = ?id", new MySqlParameter[] { new MySqlParameter("id", Id) });
 
             if(reader != null)
             {
                 if (reader.HasRows)
                 {
                     reader.Close();
-                    DB.Run("delete from cad_veiculo where cad_viculo.id_veiculo = ?id_veiculo", new MySqlParameter[] { new MySqlParameter("id_veiculo", Id) });
+                    DB.Run("delete from cad_veiculo where cad_veiculo.id_veiculo = ?id", new MySqlParameter[] { new MySqlParameter("id", Id) });
                 }
                 else
                 {
@@ -69,7 +69,7 @@ namespace AutomoveisLocadora
         }
         public void Salvar()
         {
-            MySqlDataReader reader = DB.Read("select id_veiculo from cad_veiculo where cad_veiculo.id_veiculo = ?id_veiculo", new MySqlParameter[] { new MySqlParameter("id_veiculo", Id)});
+            MySqlDataReader reader = DB.Read("select id_veiculo from cad_veiculo where cad_veiculo.id_veiculo = ?id", new MySqlParameter[] { new MySqlParameter("id", Id)});
 
             if (reader != null)
             {
@@ -78,7 +78,7 @@ namespace AutomoveisLocadora
 
                 if (hasRows)
                 {
-                    DB.Run($"update cad_veiculo set placa_veiculo = ?placa_veiculo,{(StatusV ? "data_emprestimo = ?data_emprestimo, data_devolucao = ?data_devolucao," : "data_emprestimo = null, data devolucao = null,")} desc_veiculo = ?desc_veiculo, modelo_veiculo = ?modelo_veiculo, marca_veiculo = ?marca_veiculo where id_veiculo = ?id_veiculo", GetQueryParameters());
+                    DB.Run($"update cad_veiculo set placa_veiculo = ?placa_veiculo,{(StatusV ? "data_emprestimo = ?data_emprestimo, data_devolucao = ?data_devolucao," : "data_emprestimo = null, data devolucao = null,")} desc_veiculo = ?desc_veiculo, modelo_veiculo = ?modelo_veiculo, marca_veiculo = ?marca_veiculo where id_veiculo = ?id", GetQueryParameters());
 
                 }
                 else
