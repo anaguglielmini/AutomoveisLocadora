@@ -58,7 +58,6 @@
             this.dgVeiculos.Size = new System.Drawing.Size(285, 280);
             this.dgVeiculos.TabIndex = 0;
             this.dgVeiculos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVeiculos_CellClick);
-            this.dgVeiculos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.S);
             // 
             // button1
             // 

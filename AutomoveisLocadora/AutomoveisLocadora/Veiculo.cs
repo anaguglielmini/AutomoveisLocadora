@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace AutomoveisLocadora
 {
-    class Veiculo // CRUD -> READ
+    public class Veiculo // CRUD -> READ
     {
         public string PlacaV, DescV, MarcaV, ModeloV;
         public int Id;

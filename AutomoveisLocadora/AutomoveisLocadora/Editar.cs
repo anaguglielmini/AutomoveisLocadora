@@ -12,9 +12,27 @@ namespace AutomoveisLocadora
 {
     public partial class Editar : Form
     {
-        public Editar()
+        Veiculo v;
+
+        public Editar(Veiculo v)
         {
+            this.v = v;
             InitializeComponent();
         }
+
+        private void Editar_Load(object sender, EventArgs e)
+        {
+            CarregarVeiculo();
+        }
+
+        private void CarregarVeiculo()
+        {
+            // TXTbox.text = attrs do v
+        }
+
+        private void SalvarCarro(){
+            v.Salvar();
+        }
+
     }
 }

@@ -13,6 +13,9 @@ namespace AutomoveisLocadora
 {
     public partial class Home : Form
     {
+
+        Veiculo v;
+
         public Home()
         {
             InitializeComponent();
@@ -63,21 +66,19 @@ namespace AutomoveisLocadora
 
         private void CarregarVeiculo(int id)
         {
-            Veiculo v = new Veiculo();
+            v = new Veiculo();
 
             v.Carregar(id);
 
-            
+            lbId.Text = v.Id;
+            lbPlaca.Text = v.PlacaV;
+
+            Form edit = new Editar(v);
         }
 
         private void dgVeiculos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             CarregarVeiculo(Convert.ToInt32(dgVeiculos.Rows[dgVeiculos.CurrentCell.RowIndex].Cells[0].Value));
-        }
-
-        private void S(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
