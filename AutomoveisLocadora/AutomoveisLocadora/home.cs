@@ -103,5 +103,11 @@ namespace AutomoveisLocadora
             MessageBox.Show("Veiculo deletado!");
             CarregarDataGrid();
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Editar edit = new Editar(v);
+            edit.Show();
+        }
     }
 }

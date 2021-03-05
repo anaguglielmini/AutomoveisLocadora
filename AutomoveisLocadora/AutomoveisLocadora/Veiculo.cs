@@ -42,8 +42,12 @@ namespace AutomoveisLocadora
                     this.ModeloV = reader.GetString(4);                    
                     this.PrecoV = reader.GetInt32(5);
                     this.StatusV = reader.GetBoolean(6);
-                    this.RetiradaV = reader.GetDateTime(7);
-                    this.DevolucaoV = reader.GetDateTime(8);
+                    if (!reader.IsDBNull(7))
+                    {
+                        this.RetiradaV = reader.GetDateTime(7);
+                        this.DevolucaoV = reader.GetDateTime(8);
+                    }                    
+                   
                     
                 }
                 reader.Close();
@@ -84,7 +88,7 @@ namespace AutomoveisLocadora
                 else
                 {
                     DB.Run("insert into cad_veiculo (placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao)" +
-                           $"values (?placa_veiculo, ?desc_veiculo, ?marca_veiculo, ?modelo_veiculo, ?preco_veiculo,{(StatusV ? "?data_emprestimo, ?data_devolucao," : "null, null")})", GetQueryParameters());
+                           $"values (?placaV, ?descV, ?marcaV, ?modeloV, ?precoV, {(StatusV ? "?retiradaV, ?devolucaoV" : "null, null")})", GetQueryParameters());
 
                 }
             }

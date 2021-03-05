@@ -56,6 +56,7 @@
             this.dgVeiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgVeiculos.Location = new System.Drawing.Point(28, 43);
             this.dgVeiculos.Name = "dgVeiculos";
+            this.dgVeiculos.ReadOnly = true;
             this.dgVeiculos.Size = new System.Drawing.Size(285, 279);
             this.dgVeiculos.TabIndex = 0;
             this.dgVeiculos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVeiculos_CellClick);
@@ -135,6 +136,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Location = new System.Drawing.Point(34, 245);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(172, 20);
@@ -142,6 +144,7 @@
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.Enabled = false;
             this.dateTimePicker2.Location = new System.Drawing.Point(237, 245);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(172, 20);
@@ -182,6 +185,7 @@
             this.btnEditar.TabIndex = 15;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 

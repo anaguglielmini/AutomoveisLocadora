@@ -26,9 +26,14 @@ namespace AutomoveisLocadora
             txtMarca.Text = v.MarcaV;
             txtModelo.Text = v.ModeloV;
             txtPreco.Text = v.PrecoV.ToString();
-            v.StatusV = false;
 
             v.Salvar();
+
+            MessageBox.Show("Veiculo cadastrado!");
+
+            Home h = new Home();
+            this.Close();
+            h.Show();
         }
     }
 }

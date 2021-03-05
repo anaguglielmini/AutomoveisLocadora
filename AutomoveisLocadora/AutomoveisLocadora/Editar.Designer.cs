@@ -195,7 +195,7 @@
             this.panel1.Controls.Add(this.lblDevolucao);
             this.panel1.Controls.Add(this.dateTimePickerDev);
             this.panel1.Controls.Add(this.lblEmprestimo);
-            this.panel1.Location = new System.Drawing.Point(44, 283);
+            this.panel1.Location = new System.Drawing.Point(38, 297);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(381, 56);
             this.panel1.TabIndex = 23;
@@ -208,6 +208,7 @@
             this.btnSalvar.TabIndex = 24;
             this.btnSalvar.Text = "Salvar ";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // Editar
             // 
