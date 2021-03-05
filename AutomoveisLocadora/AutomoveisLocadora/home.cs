@@ -70,8 +70,12 @@ namespace AutomoveisLocadora
 
             v.Carregar(id);
 
-            lbId.Text = v.Id;
+            lbId.Text = v.Id.ToString();
             lbPlaca.Text = v.PlacaV;
+            lbDesc.Text = v.DescV;
+            lbMarca.Text = v.MarcaV;
+            lbModelo.Text = v.ModeloV;
+            lbPreco.Text = v.PrecoV.ToString();
 
             Form edit = new Editar(v);
         }
@@ -79,6 +83,11 @@ namespace AutomoveisLocadora
         private void dgVeiculos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             CarregarVeiculo(Convert.ToInt32(dgVeiculos.Rows[dgVeiculos.CurrentCell.RowIndex].Cells[0].Value));
+        }
+
+        private void lblMulta_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

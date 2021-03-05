@@ -29,24 +29,22 @@ namespace AutomoveisLocadora
 
         public void Carregar(int id)
         {
-            MySqlDataReader reader = DB.Read("SELECT id_veiculo, modelo_veiculo FROM cad_veiculo WHERE id_veiculo = ?id", new MySqlParameter[] { new MySqlParameter("id", id)});
+            MySqlDataReader reader = DB.Read("SELECT id_veiculo, placa_veiculo,desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao FROM cad_veiculo WHERE id_veiculo = ?id", new MySqlParameter[] { new MySqlParameter("id", id)});
 
             if (reader != null)
             {
                 while (reader.Read())
                 {
                     this.Id = reader.GetInt32(0);
-                    this.ModeloV = reader.GetString(1);
-                    /*
-                    this.PlacaV = reader.GetString(1);
+                    this.PlacaV = reader.GetString(1);                 
                     this.DescV = reader.GetString(2);
                     this.MarcaV = reader.GetString(3);
-                    
+                    this.ModeloV = reader.GetString(4);                    
                     this.PrecoV = reader.GetInt32(5);
                     this.StatusV = reader.GetBoolean(6);
                     this.RetiradaV = reader.GetDateTime(7);
                     this.DevolucaoV = reader.GetDateTime(8);
-                    */
+                    
                 }
                 reader.Close();
             }
@@ -86,7 +84,7 @@ namespace AutomoveisLocadora
                 else
                 {
                     DB.Run("insert into cad_veiculo (placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao)" +
-                           $"values (?placa_veiculo, ?desc_veiculo, ?marca_veiculo, ?modelo_veiculo, ?preco_veiculo,{(StatusV ? "?data_emprestimo, ?data_devolucao," : "null, null,")})", GetQueryParameters());
+                           $"values (?placa_veiculo, ?desc_veiculo, ?marca_veiculo, ?modelo_veiculo, ?preco_veiculo,{(StatusV ? "?data_emprestimo, ?data_devolucao," : "null, null")})", GetQueryParameters());
 
                 }
             }
