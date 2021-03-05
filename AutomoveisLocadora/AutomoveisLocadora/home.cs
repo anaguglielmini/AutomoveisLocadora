@@ -89,5 +89,12 @@ namespace AutomoveisLocadora
         {
 
         }
+
+        private void btnNewCar_Click(object sender, EventArgs e)
+        {
+            Adicionar add = new Adicionar();
+            this.Hide();
+            add.Show();
+        }
     }
 }

@@ -41,12 +41,12 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.lblEmprestimo = new System.Windows.Forms.Label();
             this.lblDevolucao = new System.Windows.Forms.Label();
-            this.lblMulta = new System.Windows.Forms.Label();
             this.lblDiasAtraso = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.panelVeiculo = new System.Windows.Forms.Panel();
             this.lbModelo = new System.Windows.Forms.Label();
+            this.lblMulta = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgVeiculos)).BeginInit();
             this.panelVeiculo.SuspendLayout();
             this.SuspendLayout();
@@ -62,12 +62,13 @@
             // 
             // btnNewCar
             // 
-            this.btnNewCar.Location = new System.Drawing.Point(122, 362);
+            this.btnNewCar.Location = new System.Drawing.Point(120, 374);
             this.btnNewCar.Name = "btnNewCar";
             this.btnNewCar.Size = new System.Drawing.Size(75, 23);
             this.btnNewCar.TabIndex = 1;
             this.btnNewCar.Text = "Novo Carro";
             this.btnNewCar.UseVisualStyleBackColor = true;
+            this.btnNewCar.Click += new System.EventHandler(this.btnNewCar_Click);
             // 
             // label1
             // 
@@ -164,20 +165,10 @@
             this.lblDevolucao.TabIndex = 12;
             this.lblDevolucao.Text = "Devolução";
             // 
-            // lblMulta
-            // 
-            this.lblMulta.AutoSize = true;
-            this.lblMulta.Location = new System.Drawing.Point(31, 284);
-            this.lblMulta.Name = "lblMulta";
-            this.lblMulta.Size = new System.Drawing.Size(41, 13);
-            this.lblMulta.TabIndex = 13;
-            this.lblMulta.Text = "label10";
-            this.lblMulta.Click += new System.EventHandler(this.lblMulta_Click);
-            // 
             // lblDiasAtraso
             // 
             this.lblDiasAtraso.AutoSize = true;
-            this.lblDiasAtraso.Location = new System.Drawing.Point(31, 312);
+            this.lblDiasAtraso.Location = new System.Drawing.Point(32, 315);
             this.lblDiasAtraso.Name = "lblDiasAtraso";
             this.lblDiasAtraso.Size = new System.Drawing.Size(41, 13);
             this.lblDiasAtraso.TabIndex = 14;
@@ -185,7 +176,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(131, 337);
+            this.btnEditar.Location = new System.Drawing.Point(131, 349);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 15;
@@ -194,7 +185,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(237, 337);
+            this.btnExcluir.Location = new System.Drawing.Point(237, 349);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 16;
@@ -232,6 +223,15 @@
             this.lbModelo.TabIndex = 17;
             this.lbModelo.Text = "lbModelo";
             // 
+            // lblMulta
+            // 
+            this.lblMulta.AutoSize = true;
+            this.lblMulta.Location = new System.Drawing.Point(31, 284);
+            this.lblMulta.Name = "lblMulta";
+            this.lblMulta.Size = new System.Drawing.Size(41, 13);
+            this.lblMulta.TabIndex = 13;
+            this.lblMulta.Text = "label10";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,11 +267,11 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label lblEmprestimo;
         private System.Windows.Forms.Label lblDevolucao;
-        private System.Windows.Forms.Label lblMulta;
         private System.Windows.Forms.Label lblDiasAtraso;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Panel panelVeiculo;
         private System.Windows.Forms.Label lbModelo;
+        private System.Windows.Forms.Label lblMulta;
     }
 }

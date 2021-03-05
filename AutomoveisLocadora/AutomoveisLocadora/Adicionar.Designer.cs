@@ -140,6 +140,7 @@
             this.btnCriar.TabIndex = 11;
             this.btnCriar.Text = "Criar";
             this.btnCriar.UseVisualStyleBackColor = true;
+            this.btnCriar.Click += new System.EventHandler(this.btnCriar_Click);
             // 
             // Adicionar
             // 
