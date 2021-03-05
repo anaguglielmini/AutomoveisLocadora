@@ -34,13 +34,17 @@ namespace AutomoveisLocadora
             Console.WriteLine("Connection Done.");
         }
 
-        public static void Run(string strSQL)
+        public static void Run(string strSQL, MySqlParameter[] parameters)
         {
             try
             {
                 CheckState();
 
                 MySqlCommand cmd = new MySqlCommand(strSQL, conn);
+                foreach (MySqlParameter param in parameters)
+                {
+                    cmd.Parameters.Add(param);
+                }
 
                 cmd.ExecuteNonQuery();
             }

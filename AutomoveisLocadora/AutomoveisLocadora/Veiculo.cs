@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutomoveisLocadora
 {
@@ -26,7 +27,7 @@ namespace AutomoveisLocadora
         }
         public void Carregar(int id)
         {
-            MySqlDataReader reader = DB.Read("select id_veiculo, placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao from cad_veiculo where cad_veiculo.id = ?id", new MySqlParameter[] {new MySqlParameter("id", id)});
+            MySqlDataReader reader = DB.Read("select id_veiculo, placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao from cad_veiculo where cad_veiculo.id = ?id", new MySqlParameter[] {new MySqlParameter("id_veiculo", id)});
 
             if (reader != null)
             {
@@ -49,6 +50,24 @@ namespace AutomoveisLocadora
                     {
                         this.StatusV = false;
                     }
+                }
+                reader.Close();
+            }
+        }
+        public void Excluir()
+        {
+            MySqlDataReader reader = DB.Read("select id_veiculo from cad_veiculo where cad_veiculo.id = ?id", new MySqlParameter[] { new MySqlParameter("id_veiculo", Id) });
+
+            if(reader != null)
+            {
+                if (reader.HasRows)
+                {
+                    reader.Close();
+                    DB.Run("delete from cad_veiculo where cad_viculo.id = ?id", new MySqlParameter[] { new MySqlParameter("id_veiculo", Id) });
+                }
+                else
+                {
+                    MessageBox.Show("Carro inexistente", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 reader.Close();
             }

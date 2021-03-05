@@ -19,12 +19,12 @@ namespace AutomoveisLocadora
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             Veiculo v = new Veiculo();
-            v.placaV = txtPlaca.Text;
-            v.descV = txtDesc.Text;
-            v.modeloV = txtModelo.Text;
-            v.marcaV = txtMarca.Text;
-            v.precoV = Convert.ToInt32(txtPreco.Text);
-            string cmd = $"insert into cad_veiculo values('{v.placaV}','{v.descV}','{v.marcaV}','{v.modeloV}','{v.precoV}','0', null, null, null)";
+            v.PlacaV = txtPlaca.Text;
+            v.DescV = txtDesc.Text;
+            v.ModeloV = txtModelo.Text;
+            v.MarcaV = txtMarca.Text;
+            v.PrecoV = Convert.ToInt32(txtPreco.Text);
+            string cmd = $"insert into cad_veiculo values('{v.PlacaV}','{v.DescV}','{v.MarcaV}','{v.ModeloV}','{v.PrecoV}','0', null, null, null)";
             try
             {
                 DB.Run(cmd);
