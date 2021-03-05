@@ -8,13 +8,14 @@ using System.Windows.Forms;
 
 namespace AutomoveisLocadora
 {
-    class Veiculo
+    class Veiculo // CRUD -> READ
     {
         public string PlacaV, DescV, MarcaV, ModeloV;
         public int Id;
         public double PrecoV;
         public bool StatusV;
         public DateTime RetiradaV, DevolucaoV = DateTime.Now.Date;
+
         public void Adicionar(string placaV, string descV, string marcaV, string modeloV, double precoV)
         {
             this.Id = 0;
@@ -25,31 +26,27 @@ namespace AutomoveisLocadora
             this.PrecoV = precoV;
             this.StatusV = false;
         }
+
         public void Carregar(int id)
         {
-            MySqlDataReader reader = DB.Read("select id_veiculo, placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao from cad_veiculo where cad_veiculo.id_veiculo = ?id_veiculo", new MySqlParameter[] {new MySqlParameter("id_veiculo", id)});
+            MySqlDataReader reader = DB.Read("SELECT id_veiculo, modelo_veiculo FROM cad_veiculo WHERE id_veiculo = ?id", new MySqlParameter[] { new MySqlParameter("id", id)});
 
             if (reader != null)
             {
                 while (reader.Read())
                 {
                     this.Id = reader.GetInt32(0);
+                    this.ModeloV = reader.GetString(1);
+                    /*
                     this.PlacaV = reader.GetString(1);
                     this.DescV = reader.GetString(2);
                     this.MarcaV = reader.GetString(3);
-                    this.ModeloV = reader.GetString(4);
+                    
                     this.PrecoV = reader.GetInt32(5);
-
-                    if (!reader.IsDBNull(6))
-                    {
-                        this.StatusV = true;
-                        this.RetiradaV = reader.GetDateTime(6);
-                        this.DevolucaoV = reader.GetDateTime(7);
-                    }
-                    else
-                    {
-                        this.StatusV = false;
-                    }
+                    this.StatusV = reader.GetBoolean(6);
+                    this.RetiradaV = reader.GetDateTime(7);
+                    this.DevolucaoV = reader.GetDateTime(8);
+                    */
                 }
                 reader.Close();
             }
@@ -94,18 +91,18 @@ namespace AutomoveisLocadora
                 }
             }
         }
-        private MySqlParameter[] GetQueryParameters()
-        {
 
+        public MySqlParameter[] GetQueryParameters()
+        {
             return new MySqlParameter[] {
-                new MySqlParameter("id_veiculo", Id),
-                new MySqlParameter("placa_veiculo", PlacaV),
-                new MySqlParameter("modelo_veiculo", ModeloV),
-                new MySqlParameter("marca_veiculo", MarcaV),
-                new MySqlParameter("desc_veiculo", DescV),
-                new MySqlParameter("preco_veiculo", PrecoV),
-                new MySqlParameter("data_emprestimo", RetiradaV.ToString("yyyy-MM-dd")),
-                new MySqlParameter("data_devolucao", DevolucaoV.ToString("yyyy-MM-dd"))
+                new MySqlParameter("id", Id),
+                new MySqlParameter("placaV", PlacaV),
+                new MySqlParameter("modeloV", ModeloV),
+                new MySqlParameter("marcaV", MarcaV),
+                new MySqlParameter("descV", DescV),
+                new MySqlParameter("precoV", PrecoV),
+                new MySqlParameter("retiradaV", RetiradaV.ToString("yyyy-MM-dd")),
+                new MySqlParameter("devolucaoV", DevolucaoV.ToString("yyyy-MM-dd"))
             };
         }
     }

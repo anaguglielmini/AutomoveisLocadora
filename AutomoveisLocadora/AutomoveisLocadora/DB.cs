@@ -61,8 +61,12 @@ namespace AutomoveisLocadora
                 CheckState();
 
                 MySqlCommand cmd = new MySqlCommand(strSQL, conn);
+                foreach (MySqlParameter param in mySqlParameter)
+                {
+                    cmd.Parameters.Add(param);
+                }
 
-                MySqlDataReader rdr = cmd.ExecuteReader(); // REMEMBER TO CLOSE READER AFTER DOING ANY OTHER SQL OPERATION PLEASE!!!!
+                MySqlDataReader rdr = cmd.ExecuteReader(); // REMEMBER TO CLOSE READER AFTER DOING ANY OTHER SQL OPERATION PLEASE!!!
 
                 return rdr;
             }
