@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,10 +25,10 @@ namespace AutomoveisLocadora
             v.ModeloV = txtModelo.Text;
             v.MarcaV = txtMarca.Text;
             v.PrecoV = Convert.ToInt32(txtPreco.Text);
-            string cmd = $"insert into cad_veiculo values('{v.PlacaV}','{v.DescV}','{v.MarcaV}','{v.ModeloV}','{v.PrecoV}','0', null, null, null)";
+            string cmd = $"insert into cad_veiculo values('{v.PlacaV}','{v.DescV}','{v.MarcaV}','{v.ModeloV}','{v.PrecoV}','0', null, null)";
             try
             {
-                DB.Run(cmd);
+                DB.Run(command);
                 this.Close();
                 MessageBox.Show("Veículo cadastrado");
                 Main main = new Main();

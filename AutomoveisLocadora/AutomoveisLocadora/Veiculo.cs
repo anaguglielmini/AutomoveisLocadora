@@ -27,7 +27,7 @@ namespace AutomoveisLocadora
         }
         public void Carregar(int id)
         {
-            MySqlDataReader reader = DB.Read("select id_veiculo, placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao from cad_veiculo where cad_veiculo.id = ?id", new MySqlParameter[] {new MySqlParameter("id_veiculo", id)});
+            MySqlDataReader reader = DB.Read("select id_veiculo, placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao from cad_veiculo where cad_veiculo.id_veiculo = ?id_veiculo", new MySqlParameter[] {new MySqlParameter("id_veiculo", id)});
 
             if (reader != null)
             {
@@ -56,14 +56,14 @@ namespace AutomoveisLocadora
         }
         public void Excluir()
         {
-            MySqlDataReader reader = DB.Read("select id_veiculo from cad_veiculo where cad_veiculo.id = ?id", new MySqlParameter[] { new MySqlParameter("id_veiculo", Id) });
+            MySqlDataReader reader = DB.Read("select id_veiculo from cad_veiculo where cad_veiculo.id_veiculo = ?id_veiculo", new MySqlParameter[] { new MySqlParameter("id_veiculo", Id) });
 
             if(reader != null)
             {
                 if (reader.HasRows)
                 {
                     reader.Close();
-                    DB.Run("delete from cad_veiculo where cad_viculo.id = ?id", new MySqlParameter[] { new MySqlParameter("id_veiculo", Id) });
+                    DB.Run("delete from cad_veiculo where cad_viculo.id_veiculo = ?id_veiculo", new MySqlParameter[] { new MySqlParameter("id_veiculo", Id) });
                 }
                 else
                 {
@@ -71,6 +71,42 @@ namespace AutomoveisLocadora
                 }
                 reader.Close();
             }
+        }
+        public void Salvar()
+        {
+            MySqlDataReader reader = DB.Read("select id_veiculo from cad_veiculo where cad_veiculo.id_veiculo = ?id_veiculo", new MySqlParameter[] { new MySqlParameter("id_veiculo", Id)});
+
+            if (reader != null)
+            {
+                bool hasRows = reader.HasRows;
+                reader.Close();
+
+                if (hasRows)
+                {
+                    DB.Run($"update cad_veiculo set placa_veiculo = ?placa_veiculo,{(StatusV ? "data_emprestimo = ?data_emprestimo, data_devolucao = ?data_devolucao," : "data_emprestimo = null, data devolucao = null,")} desc_veiculo = ?desc_veiculo, modelo_veiculo = ?modelo_veiculo, marca_veiculo = ?marca_veiculo where id_veiculo = ?id_veiculo", GetQueryParameters());
+
+                }
+                else
+                {
+                    DB.Run("insert into cad_veiculo (placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao)" +
+                           $"values (?placa_veiculo, ?desc_veiculo, ?marca_veiculo, ?modelo_veiculo, ?preco_veiculo,{(StatusV ? "?data_emprestimo, ?data_devolucao," : "null, null,")})", GetQueryParameters());
+
+                }
+            }
+        }
+        private MySqlParameter[] GetQueryParameters()
+        {
+
+            return new MySqlParameter[] {
+                new MySqlParameter("id_veiculo", Id),
+                new MySqlParameter("placa_veiculo", PlacaV),
+                new MySqlParameter("modelo_veiculo", ModeloV),
+                new MySqlParameter("marca_veiculo", MarcaV),
+                new MySqlParameter("desc_veiculo", DescV),
+                new MySqlParameter("preco_veiculo", PrecoV),
+                new MySqlParameter("data_emprestimo", RetiradaV.ToString("yyyy-MM-dd")),
+                new MySqlParameter("data_devolucao", DevolucaoV.ToString("yyyy-MM-dd"))
+            };
         }
     }
 }

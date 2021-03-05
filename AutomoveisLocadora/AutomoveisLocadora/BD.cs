@@ -95,20 +95,16 @@ namespace AutomoveisLocadora
 
         private static void ThrowDatabaseError(Exception ex)
         {
-
-            MessageBox.Show(ex.Message, "Erro com o banco!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            MessageBox.Show(ex.Message, "Erro com o banco!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private static void ThrowDatabaseFatalError(Exception ex)
         {
-
             DialogResult result = MessageBox.Show(ex.Message, "Erro com o banco!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (result == DialogResult.OK)
             {
                 Application.Exit();
             }
-
         }
     }
 }

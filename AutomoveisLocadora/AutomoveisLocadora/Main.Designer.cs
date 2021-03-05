@@ -35,16 +35,20 @@
             this.lblModelo = new System.Windows.Forms.Label();
             this.lblPlaca = new System.Windows.Forms.Label();
             this.lblPreco = new System.Windows.Forms.Label();
-            this.lblDisp = new System.Windows.Forms.Label();
             this.lblMarcaResult = new System.Windows.Forms.Label();
             this.lblModeloResult = new System.Windows.Forms.Label();
             this.lblPlacaResult = new System.Windows.Forms.Label();
             this.lblPrecoResult = new System.Windows.Forms.Label();
-            this.lblDispResult = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCriar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.lbCarros = new System.Windows.Forms.ListBox();
+            this.lblRetirada = new System.Windows.Forms.Label();
+            this.lblRetiradaResult = new System.Windows.Forms.Label();
+            this.lblDevolucaoResult = new System.Windows.Forms.Label();
+            this.lblDevolucao = new System.Windows.Forms.Label();
+            this.lblMulta = new System.Windows.Forms.Label();
+            this.lblMultaResult = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -75,7 +79,7 @@
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(483, 79);
+            this.lblMarca.Location = new System.Drawing.Point(450, 89);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(40, 13);
             this.lblMarca.TabIndex = 4;
@@ -84,7 +88,7 @@
             // lblModelo
             // 
             this.lblModelo.AutoSize = true;
-            this.lblModelo.Location = new System.Drawing.Point(483, 115);
+            this.lblModelo.Location = new System.Drawing.Point(450, 125);
             this.lblModelo.Name = "lblModelo";
             this.lblModelo.Size = new System.Drawing.Size(45, 13);
             this.lblModelo.TabIndex = 5;
@@ -93,7 +97,7 @@
             // lblPlaca
             // 
             this.lblPlaca.AutoSize = true;
-            this.lblPlaca.Location = new System.Drawing.Point(483, 148);
+            this.lblPlaca.Location = new System.Drawing.Point(450, 158);
             this.lblPlaca.Name = "lblPlaca";
             this.lblPlaca.Size = new System.Drawing.Size(37, 13);
             this.lblPlaca.TabIndex = 6;
@@ -102,25 +106,16 @@
             // lblPreco
             // 
             this.lblPreco.AutoSize = true;
-            this.lblPreco.Location = new System.Drawing.Point(483, 180);
+            this.lblPreco.Location = new System.Drawing.Point(450, 190);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(38, 13);
             this.lblPreco.TabIndex = 25;
             this.lblPreco.Text = "Preço:";
             // 
-            // lblDisp
-            // 
-            this.lblDisp.AutoSize = true;
-            this.lblDisp.Location = new System.Drawing.Point(483, 210);
-            this.lblDisp.Name = "lblDisp";
-            this.lblDisp.Size = new System.Drawing.Size(62, 13);
-            this.lblDisp.TabIndex = 30;
-            this.lblDisp.Text = "Disponivel: ";
-            // 
             // lblMarcaResult
             // 
             this.lblMarcaResult.AutoSize = true;
-            this.lblMarcaResult.Location = new System.Drawing.Point(549, 79);
+            this.lblMarcaResult.Location = new System.Drawing.Point(516, 89);
             this.lblMarcaResult.Name = "lblMarcaResult";
             this.lblMarcaResult.Size = new System.Drawing.Size(37, 13);
             this.lblMarcaResult.TabIndex = 31;
@@ -129,7 +124,7 @@
             // lblModeloResult
             // 
             this.lblModeloResult.AutoSize = true;
-            this.lblModeloResult.Location = new System.Drawing.Point(549, 115);
+            this.lblModeloResult.Location = new System.Drawing.Point(516, 125);
             this.lblModeloResult.Name = "lblModeloResult";
             this.lblModeloResult.Size = new System.Drawing.Size(42, 13);
             this.lblModeloResult.TabIndex = 32;
@@ -138,7 +133,7 @@
             // lblPlacaResult
             // 
             this.lblPlacaResult.AutoSize = true;
-            this.lblPlacaResult.Location = new System.Drawing.Point(549, 148);
+            this.lblPlacaResult.Location = new System.Drawing.Point(516, 158);
             this.lblPlacaResult.Name = "lblPlacaResult";
             this.lblPlacaResult.Size = new System.Drawing.Size(34, 13);
             this.lblPlacaResult.TabIndex = 33;
@@ -147,24 +142,15 @@
             // lblPrecoResult
             // 
             this.lblPrecoResult.AutoSize = true;
-            this.lblPrecoResult.Location = new System.Drawing.Point(549, 180);
+            this.lblPrecoResult.Location = new System.Drawing.Point(516, 190);
             this.lblPrecoResult.Name = "lblPrecoResult";
             this.lblPrecoResult.Size = new System.Drawing.Size(35, 13);
             this.lblPrecoResult.TabIndex = 34;
             this.lblPrecoResult.Text = "Preço";
             // 
-            // lblDispResult
-            // 
-            this.lblDispResult.AutoSize = true;
-            this.lblDispResult.Location = new System.Drawing.Point(549, 210);
-            this.lblDispResult.Name = "lblDispResult";
-            this.lblDispResult.Size = new System.Drawing.Size(45, 13);
-            this.lblDispResult.TabIndex = 35;
-            this.lblDispResult.Text = "sim/não";
-            // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(453, 265);
+            this.btnEditar.Location = new System.Drawing.Point(478, 260);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 36;
@@ -183,7 +169,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(552, 265);
+            this.btnExcluir.Location = new System.Drawing.Point(577, 260);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 38;
@@ -198,21 +184,76 @@
             this.lbCarros.Size = new System.Drawing.Size(317, 264);
             this.lbCarros.TabIndex = 39;
             // 
+            // lblRetirada
+            // 
+            this.lblRetirada.AutoSize = true;
+            this.lblRetirada.Location = new System.Drawing.Point(601, 89);
+            this.lblRetirada.Name = "lblRetirada";
+            this.lblRetirada.Size = new System.Drawing.Size(50, 13);
+            this.lblRetirada.TabIndex = 40;
+            this.lblRetirada.Text = "Retirada:";
+            // 
+            // lblRetiradaResult
+            // 
+            this.lblRetiradaResult.AutoSize = true;
+            this.lblRetiradaResult.Location = new System.Drawing.Point(657, 89);
+            this.lblRetiradaResult.Name = "lblRetiradaResult";
+            this.lblRetiradaResult.Size = new System.Drawing.Size(0, 13);
+            this.lblRetiradaResult.TabIndex = 41;
+            // 
+            // lblDevolucaoResult
+            // 
+            this.lblDevolucaoResult.AutoSize = true;
+            this.lblDevolucaoResult.Location = new System.Drawing.Point(669, 125);
+            this.lblDevolucaoResult.Name = "lblDevolucaoResult";
+            this.lblDevolucaoResult.Size = new System.Drawing.Size(0, 13);
+            this.lblDevolucaoResult.TabIndex = 43;
+            // 
+            // lblDevolucao
+            // 
+            this.lblDevolucao.AutoSize = true;
+            this.lblDevolucao.Location = new System.Drawing.Point(601, 125);
+            this.lblDevolucao.Name = "lblDevolucao";
+            this.lblDevolucao.Size = new System.Drawing.Size(62, 13);
+            this.lblDevolucao.TabIndex = 42;
+            this.lblDevolucao.Text = "Devolução:";
+            // 
+            // lblMulta
+            // 
+            this.lblMulta.AutoSize = true;
+            this.lblMulta.Location = new System.Drawing.Point(601, 190);
+            this.lblMulta.Name = "lblMulta";
+            this.lblMulta.Size = new System.Drawing.Size(36, 13);
+            this.lblMulta.TabIndex = 44;
+            this.lblMulta.Text = "Multa:";
+            // 
+            // lblMultaResult
+            // 
+            this.lblMultaResult.AutoSize = true;
+            this.lblMultaResult.Location = new System.Drawing.Point(643, 190);
+            this.lblMultaResult.Name = "lblMultaResult";
+            this.lblMultaResult.Size = new System.Drawing.Size(0, 13);
+            this.lblMultaResult.TabIndex = 45;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 468);
+            this.Controls.Add(this.lblMultaResult);
+            this.Controls.Add(this.lblMulta);
+            this.Controls.Add(this.lblDevolucaoResult);
+            this.Controls.Add(this.lblDevolucao);
+            this.Controls.Add(this.lblRetiradaResult);
+            this.Controls.Add(this.lblRetirada);
             this.Controls.Add(this.lbCarros);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnCriar);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.lblDispResult);
             this.Controls.Add(this.lblPrecoResult);
             this.Controls.Add(this.lblPlacaResult);
             this.Controls.Add(this.lblModeloResult);
             this.Controls.Add(this.lblMarcaResult);
-            this.Controls.Add(this.lblDisp);
             this.Controls.Add(this.lblPreco);
             this.Controls.Add(this.lblPlaca);
             this.Controls.Add(this.lblModelo);
@@ -237,16 +278,20 @@
         private System.Windows.Forms.Label lblModelo;
         private System.Windows.Forms.Label lblPlaca;
         private System.Windows.Forms.Label lblPreco;
-        private System.Windows.Forms.Label lblDisp;
         private System.Windows.Forms.Label lblMarcaResult;
         private System.Windows.Forms.Label lblModeloResult;
         private System.Windows.Forms.Label lblPlacaResult;
         private System.Windows.Forms.Label lblPrecoResult;
-        private System.Windows.Forms.Label lblDispResult;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnCriar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.ListBox lbCarros;
+        private System.Windows.Forms.Label lblRetirada;
+        private System.Windows.Forms.Label lblRetiradaResult;
+        private System.Windows.Forms.Label lblDevolucaoResult;
+        private System.Windows.Forms.Label lblDevolucao;
+        private System.Windows.Forms.Label lblMulta;
+        private System.Windows.Forms.Label lblMultaResult;
     }
 }
 

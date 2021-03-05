@@ -62,13 +62,55 @@ namespace AutomoveisLocadora
 
                 Veiculo carro = new Veiculo();
 
-                carro.Load(id);
+                carro.Carregar(id);
 
                 this.carro = carro;
 
-                UpdateCarInfo();
+                AtualizarCarro();
             }
 
+        }
+        private void AtualizarCarro()
+        {
+            lblMarcaResult.Text = carro.MarcaV;
+            lblModeloResult.Text = carro.ModeloV;
+            lblPlacaResult.Text = carro.PlacaV;
+            lblPrecoResult.Text = carro.PrecoV.ToString();
+
+            if (carro.StatusV)
+            {
+                lblMulta.ForeColor = Color.Black;
+                lblDevolucao.ForeColor = Color.Black;
+
+                lblRetirada.Text = "Retirada: " + carro.RetiradaV.ToShortDateString();
+                lblDevolucao.Text = "Devolução: " + carro.DevolucaoV.ToShortDateString();
+
+                lblMulta.Text = "";
+
+                int diasAtraso = Convert.ToInt32(Math.Round((DateTime.Now - carro.DevolucaoV).TotalDays) - 1);
+
+                if (diasAtraso > 0)
+                {
+                    lblMulta.ForeColor = Color.Red;
+                    lblDevolucao.ForeColor = Color.Orange;
+                    lblMulta.Text = "Atrasado, Multa: R$" + (carro.PrecoV * diasAtraso) * 1.7; // 70% more
+                }
+                else
+                {
+                    lblMulta.ForeColor = Color.Green;
+                    lblMulta.Text = "Dentro do prazo";
+                }
+
+
+            }
+            else
+            {
+                lblRetirada.Text = "";
+                lblDevolucao.Text = "";
+
+                lblMulta.ForeColor = Color.Green;
+                lblMulta.Text = "Disponível";
+            }                        
         }
 
         private void btnCriar_Click(object sender, EventArgs e)

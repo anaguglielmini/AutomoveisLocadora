@@ -12,19 +12,18 @@ CREATE TABLE `cad_veiculo` (
   `stts_veiculo` boolean NOT NULL,
   `data_emprestimo` date,
   `data_devolucao` date,
-  `multa` int,
   PRIMARY KEY (`id_veiculo`),
   UNIQUE KEY `placa_veiculo_UNIQUE` (`placa_veiculo`),
   UNIQUE KEY `id_veiculo_UNIQUE` (`id_veiculo`)
 );
 
-insert into cad_veiculo (placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao, multa)
-values ('abc4321', 'Vermelho, quatro portas, arranhão no lado e piercing no retrovisor', 'Fiat', 'Jorge','100', '1', '2021-02-01', '2021-02-10', null);
+insert into cad_veiculo (placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao)
+values ('abc4321', 'Vermelho, quatro portas, arranhão no lado e piercing no retrovisor', 'Fiat', 'Jorge','100', '1', '2021-02-01', '2021-02-10');
 
-insert into cad_veiculo (placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao, multa)
-values ('ben1522', 'Azul preto, quatro portas, perfeito', 'Rolls royce', 'Sweptail','1000', '0', null, null, null);
+insert into cad_veiculo (placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao)
+values ('ben1522', 'Azul preto, quatro portas, perfeito', 'Rolls royce', 'Sweptail','1000', '0', null, null);
 
-insert into cad_veiculo (placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao, multa)
-values ('del0142', 'Cinza, duas portas, viaja no tempo', 'Delorian', 'DMC','10000', '1', '2021-01-03', '2021-01-20', null);
+insert into cad_veiculo (placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao)
+values ('del0142', 'Cinza, duas portas, viaja no tempo', 'Delorian', 'DMC','10000', '1', '2021-01-03', '2021-01-20');
 
 select * from cad_veiculo;
