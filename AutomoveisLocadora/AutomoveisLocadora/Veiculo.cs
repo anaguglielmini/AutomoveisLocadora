@@ -13,7 +13,7 @@ namespace AutomoveisLocadora
         public string PlacaV, DescV, MarcaV, ModeloV;
         public int Id;
         public double PrecoV;
-        public bool StatusV;
+        public bool AlugadoV;
         public DateTime RetiradaV, DevolucaoV = DateTime.Now.Date;
 
         public void Adicionar(string placaV, string descV, string marcaV, string modeloV, double precoV)
@@ -24,7 +24,7 @@ namespace AutomoveisLocadora
             this.MarcaV = marcaV;
             this.ModeloV = modeloV;
             this.PrecoV = precoV;
-            this.StatusV = false;
+            this.AlugadoV = false;
         }
 
         public void Carregar(int id)
@@ -41,7 +41,7 @@ namespace AutomoveisLocadora
                     this.MarcaV = reader.GetString(3);
                     this.ModeloV = reader.GetString(4);                    
                     this.PrecoV = reader.GetInt32(5);
-                    this.StatusV = reader.GetBoolean(6);
+                    this.AlugadoV = reader.GetBoolean(6);
                     if (!reader.IsDBNull(7))
                     {
                         this.RetiradaV = reader.GetDateTime(7);
@@ -55,14 +55,14 @@ namespace AutomoveisLocadora
         }
         public void Excluir()
         {
-            MySqlDataReader reader = DB.Read("select id_veiculo from cad_veiculo WHERE cad_veiculo.id_veiculo = ?id", new MySqlParameter[] { new MySqlParameter("id", Id) });
+            MySqlDataReader reader = DB.Read("SELECT id_veiculo FROM cad_veiculo WHERE cad_veiculo.id_veiculo = ?id", new MySqlParameter[] { new MySqlParameter("id", Id) });
 
             if(reader != null)
             {
                 if (reader.HasRows)
                 {
                     reader.Close();
-                    DB.Run("delete from cad_veiculo where cad_veiculo.id_veiculo = ?id", new MySqlParameter[] { new MySqlParameter("id", Id) });
+                    DB.Run("DELETE FROM cad_veiculo WHERE cad_veiculo.id_veiculo = ?id", new MySqlParameter[] { new MySqlParameter("id", Id) });
                 }
                 else
                 {
@@ -73,7 +73,7 @@ namespace AutomoveisLocadora
         }
         public void Salvar()
         {
-            MySqlDataReader reader = DB.Read("select id_veiculo from cad_veiculo where cad_veiculo.id_veiculo = ?id", new MySqlParameter[] { new MySqlParameter("id", Id)});
+            MySqlDataReader reader = DB.Read("SELECT id_veiculo FROM cad_veiculo WHERE cad_veiculo.id_veiculo = ?id", new MySqlParameter[] { new MySqlParameter("id", Id)});
 
             if (reader != null)
             {
@@ -82,13 +82,13 @@ namespace AutomoveisLocadora
 
                 if (hasRows)
                 {
-                    DB.Run($"update cad_veiculo set placa_veiculo = ?placa_veiculo,{(StatusV ? "data_emprestimo = ?data_emprestimo, data_devolucao = ?data_devolucao," : "data_emprestimo = null, data devolucao = null,")} desc_veiculo = ?desc_veiculo, modelo_veiculo = ?modelo_veiculo, marca_veiculo = ?marca_veiculo where id_veiculo = ?id", GetQueryParameters());
+                    DB.Run("UPDATE cad_veiculo SET placa_veiculo = ?placaV, desc_veiculo = ?descV, marca_veiculo = ?marcaV, modelo_veiculo = ?modeloV, preco_veiculo = ?precoV, stts_veiculo = ?statusV, " + (this.AlugadoV ? " data_emprestimo = ?retiradaV, data_devolucao = ?devolucaoV": " data_emprestimo = null, data_devolucao = null" ) + " WHERE id_veiculo = ?id", GetQueryParameters());
 
                 }
                 else
                 {
-                    DB.Run("insert into cad_veiculo (placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao)" +
-                           $"values (?placaV, ?descV, ?marcaV, ?modeloV, ?precoV, {(StatusV ? "?retiradaV, ?devolucaoV" : "null, null")})", GetQueryParameters());
+                    DB.Run("INSERT into cad_veiculo (placa_veiculo, desc_veiculo, marca_veiculo, modelo_veiculo, preco_veiculo, stts_veiculo, data_emprestimo, data_devolucao)" +
+                           $"values (?placaV, ?descV, ?marcaV, ?modeloV, ?precoV, ?statusV, {(AlugadoV ? "?retiradaV, ?devolucaoV" : "null, null")})", GetQueryParameters());
 
                 }
             }
@@ -103,6 +103,7 @@ namespace AutomoveisLocadora
                 new MySqlParameter("marcaV", MarcaV),
                 new MySqlParameter("descV", DescV),
                 new MySqlParameter("precoV", PrecoV),
+                new MySqlParameter("statusV", AlugadoV),
                 new MySqlParameter("retiradaV", RetiradaV.ToString("yyyy-MM-dd")),
                 new MySqlParameter("devolucaoV", DevolucaoV.ToString("yyyy-MM-dd"))
             };

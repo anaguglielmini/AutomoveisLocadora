@@ -13,7 +13,6 @@ CREATE TABLE `cad_veiculo` (
   `data_emprestimo` date,
   `data_devolucao` date,
   PRIMARY KEY (`id_veiculo`),
-  UNIQUE KEY `placa_veiculo_UNIQUE` (`placa_veiculo`),
   UNIQUE KEY `id_veiculo_UNIQUE` (`id_veiculo`)
 );
 

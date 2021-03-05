@@ -54,7 +54,7 @@
             // lblPlaca
             // 
             this.lblPlaca.AutoSize = true;
-            this.lblPlaca.Location = new System.Drawing.Point(94, 68);
+            this.lblPlaca.Location = new System.Drawing.Point(63, 65);
             this.lblPlaca.Name = "lblPlaca";
             this.lblPlaca.Size = new System.Drawing.Size(34, 13);
             this.lblPlaca.TabIndex = 1;
@@ -63,7 +63,7 @@
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(94, 158);
+            this.lblMarca.Location = new System.Drawing.Point(63, 155);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(37, 13);
             this.lblMarca.TabIndex = 2;
@@ -72,7 +72,7 @@
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(94, 94);
+            this.lblDesc.Location = new System.Drawing.Point(63, 91);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(55, 13);
             this.lblDesc.TabIndex = 3;
@@ -81,7 +81,7 @@
             // lblModelo
             // 
             this.lblModelo.AutoSize = true;
-            this.lblModelo.Location = new System.Drawing.Point(94, 189);
+            this.lblModelo.Location = new System.Drawing.Point(63, 186);
             this.lblModelo.Name = "lblModelo";
             this.lblModelo.Size = new System.Drawing.Size(42, 13);
             this.lblModelo.TabIndex = 4;
@@ -90,7 +90,7 @@
             // lblPreco
             // 
             this.lblPreco.AutoSize = true;
-            this.lblPreco.Location = new System.Drawing.Point(94, 219);
+            this.lblPreco.Location = new System.Drawing.Point(63, 216);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(35, 13);
             this.lblPreco.TabIndex = 5;
@@ -98,36 +98,36 @@
             // 
             // txtPlaca
             // 
-            this.txtPlaca.Location = new System.Drawing.Point(200, 68);
+            this.txtPlaca.Location = new System.Drawing.Point(169, 65);
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(133, 20);
             this.txtPlaca.TabIndex = 6;
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(200, 94);
+            this.txtDesc.Location = new System.Drawing.Point(169, 91);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(133, 58);
+            this.txtDesc.Size = new System.Drawing.Size(232, 58);
             this.txtDesc.TabIndex = 7;
             // 
             // txtMarca
             // 
-            this.txtMarca.Location = new System.Drawing.Point(200, 158);
+            this.txtMarca.Location = new System.Drawing.Point(169, 155);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(133, 20);
             this.txtMarca.TabIndex = 8;
             // 
             // txtModelo
             // 
-            this.txtModelo.Location = new System.Drawing.Point(200, 184);
+            this.txtModelo.Location = new System.Drawing.Point(169, 181);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(133, 20);
             this.txtModelo.TabIndex = 9;
             // 
             // txtPreco
             // 
-            this.txtPreco.Location = new System.Drawing.Point(200, 210);
+            this.txtPreco.Location = new System.Drawing.Point(169, 207);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(133, 20);
             this.txtPreco.TabIndex = 10;

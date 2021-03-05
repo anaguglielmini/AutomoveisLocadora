@@ -24,11 +24,13 @@ namespace AutomoveisLocadora
         private void Home_Load(object sender, EventArgs e)
         {
             CarregarDataGrid();
-            CarregarVeiculo(Convert.ToInt32(dgVeiculos.Rows[0].Cells[0].Value));
             this.panelVeiculo.Visible = true;
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker2.Enabled = false;
+            dgVeiculos.AllowUserToAddRows = false;
         }
 
-        private void CarregarDataGrid()
+        public void CarregarDataGrid()
         {
             MySqlDataReader reader = DB.Read("SELECT id_veiculo, modelo_veiculo, placa_veiculo, marca_veiculo FROM cad_veiculo", new MySqlParameter[]{});
 
@@ -56,12 +58,14 @@ namespace AutomoveisLocadora
                     }
 
                     dgVeiculos.DataSource = table;
+
+                    this.dgVeiculos.ReadOnly = true;
                     dgVeiculos.Columns[0].Visible = false;
                 }
 
                 reader.Close();
             }
-            
+            CarregarVeiculo(Convert.ToInt32(dgVeiculos.Rows[0].Cells[0].Value));
         }
 
         private void CarregarVeiculo(int id)
@@ -77,7 +81,44 @@ namespace AutomoveisLocadora
             lbModelo.Text = v.ModeloV;
             lbPreco.Text = v.PrecoV.ToString();
 
-            Form edit = new Editar(v);
+            lbDisponivel.Text = v.AlugadoV? "Alugado" : "Disponível";
+
+            if(v.AlugadoV){
+
+                lbMulta.Visible = false;
+                lbDias.Visible = false;
+                lblEmprestimo.Visible = true;
+                lblDevolucao.Visible = true;
+                dateTimePicker1.Visible = true;
+                dateTimePicker2.Visible = true;
+                dateTimePicker1.Value = v.RetiradaV;
+                dateTimePicker2.Value = v.DevolucaoV;
+
+                double days = Math.Round((DateTime.Now - v.DevolucaoV).TotalDays);
+
+                if(days > 0){
+
+                    lbMulta.Visible = true;
+                    lbDias.Visible = true;
+                    lblMulta.Text = ((days * v.PrecoV) * 1.7).ToString();
+                    lblDias.Text = days + " dias";
+                }else{
+
+                    lblMulta.Text = "";
+                    lblDias.Text = "";
+                }
+
+            }else{
+                lblMulta.Text = "";
+                lblDias.Text = "";
+
+                lbMulta.Visible = false;
+                lbDias.Visible = false;
+                lblEmprestimo.Visible = false;
+                lblDevolucao.Visible = false;
+                dateTimePicker1.Visible = false;
+                dateTimePicker2.Visible = false;
+            }
         }
 
         private void dgVeiculos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -85,16 +126,11 @@ namespace AutomoveisLocadora
             CarregarVeiculo(Convert.ToInt32(dgVeiculos.Rows[dgVeiculos.CurrentCell.RowIndex].Cells[0].Value));
         }
 
-        private void lblMulta_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnNewCar_Click(object sender, EventArgs e)
         {
             Adicionar add = new Adicionar();
-            this.Hide();
             add.Show();
+            this.Hide();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -108,6 +144,7 @@ namespace AutomoveisLocadora
         {
             Editar edit = new Editar(v);
             edit.Show();
+            this.Hide();
         }
     }
 }

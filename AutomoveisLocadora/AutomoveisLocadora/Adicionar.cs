@@ -21,12 +21,13 @@ namespace AutomoveisLocadora
         {
             Veiculo v = new Veiculo();
 
-            txtPlaca.Text = v.PlacaV;
-            txtDesc.Text = v.DescV;
-            txtMarca.Text = v.MarcaV;
-            txtModelo.Text = v.ModeloV;
-            txtPreco.Text = v.PrecoV.ToString();
-
+            v.PlacaV = txtPlaca.Text;
+            v.DescV = txtDesc.Text;
+            v.MarcaV = txtMarca.Text;
+            v.ModeloV = txtModelo.Text;
+            v.PrecoV = Convert.ToInt32(txtPreco.Text);
+            v.AlugadoV = false;
+            
             v.Salvar();
 
             MessageBox.Show("Veiculo cadastrado!");

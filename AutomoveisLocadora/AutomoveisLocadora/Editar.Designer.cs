@@ -36,7 +36,7 @@
             this.lblPlaca = new System.Windows.Forms.Label();
             this.txtPlaca = new System.Windows.Forms.TextBox();
             this.txtDesc = new System.Windows.Forms.TextBox();
-            this.txtmarca = new System.Windows.Forms.TextBox();
+            this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.comboBoxDisp = new System.Windows.Forms.ComboBox();
@@ -53,7 +53,7 @@
             // lblDisponivel
             // 
             this.lblDisponivel.AutoSize = true;
-            this.lblDisponivel.Location = new System.Drawing.Point(112, 267);
+            this.lblDisponivel.Location = new System.Drawing.Point(54, 262);
             this.lblDisponivel.Name = "lblDisponivel";
             this.lblDisponivel.Size = new System.Drawing.Size(59, 13);
             this.lblDisponivel.TabIndex = 11;
@@ -62,7 +62,7 @@
             // lblPreco
             // 
             this.lblPreco.AutoSize = true;
-            this.lblPreco.Location = new System.Drawing.Point(112, 234);
+            this.lblPreco.Location = new System.Drawing.Point(54, 229);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(38, 13);
             this.lblPreco.TabIndex = 10;
@@ -71,7 +71,7 @@
             // lblModelo
             // 
             this.lblModelo.AutoSize = true;
-            this.lblModelo.Location = new System.Drawing.Point(112, 202);
+            this.lblModelo.Location = new System.Drawing.Point(54, 197);
             this.lblModelo.Name = "lblModelo";
             this.lblModelo.Size = new System.Drawing.Size(45, 13);
             this.lblModelo.TabIndex = 9;
@@ -80,7 +80,7 @@
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(112, 170);
+            this.lblMarca.Location = new System.Drawing.Point(54, 165);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(40, 13);
             this.lblMarca.TabIndex = 8;
@@ -89,7 +89,7 @@
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(112, 125);
+            this.lblDesc.Location = new System.Drawing.Point(54, 120);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(58, 13);
             this.lblDesc.TabIndex = 7;
@@ -98,7 +98,7 @@
             // lblPlaca
             // 
             this.lblPlaca.AutoSize = true;
-            this.lblPlaca.Location = new System.Drawing.Point(112, 75);
+            this.lblPlaca.Location = new System.Drawing.Point(54, 70);
             this.lblPlaca.Name = "lblPlaca";
             this.lblPlaca.Size = new System.Drawing.Size(37, 13);
             this.lblPlaca.TabIndex = 6;
@@ -106,36 +106,36 @@
             // 
             // txtPlaca
             // 
-            this.txtPlaca.Location = new System.Drawing.Point(203, 68);
+            this.txtPlaca.Location = new System.Drawing.Point(145, 63);
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(115, 20);
             this.txtPlaca.TabIndex = 12;
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(203, 94);
+            this.txtDesc.Location = new System.Drawing.Point(145, 89);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(216, 63);
+            this.txtDesc.Size = new System.Drawing.Size(268, 63);
             this.txtDesc.TabIndex = 13;
             // 
-            // txtmarca
+            // txtMarca
             // 
-            this.txtmarca.Location = new System.Drawing.Point(203, 163);
-            this.txtmarca.Name = "txtmarca";
-            this.txtmarca.Size = new System.Drawing.Size(115, 20);
-            this.txtmarca.TabIndex = 14;
+            this.txtMarca.Location = new System.Drawing.Point(145, 158);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.Size = new System.Drawing.Size(115, 20);
+            this.txtMarca.TabIndex = 14;
             // 
             // txtModelo
             // 
-            this.txtModelo.Location = new System.Drawing.Point(203, 195);
+            this.txtModelo.Location = new System.Drawing.Point(145, 190);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(115, 20);
             this.txtModelo.TabIndex = 15;
             // 
             // txtPreco
             // 
-            this.txtPreco.Location = new System.Drawing.Point(203, 227);
+            this.txtPreco.Location = new System.Drawing.Point(145, 222);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(115, 20);
             this.txtPreco.TabIndex = 16;
@@ -143,15 +143,16 @@
             // comboBoxDisp
             // 
             this.comboBoxDisp.FormattingEnabled = true;
-            this.comboBoxDisp.Location = new System.Drawing.Point(203, 259);
+            this.comboBoxDisp.Location = new System.Drawing.Point(145, 254);
             this.comboBoxDisp.Name = "comboBoxDisp";
             this.comboBoxDisp.Size = new System.Drawing.Size(115, 21);
             this.comboBoxDisp.TabIndex = 17;
+            this.comboBoxDisp.SelectedIndexChanged += new System.EventHandler(this.comboBoxDisp_SelectedIndexChanged);
             // 
             // lblEditando
             // 
             this.lblEditando.AutoSize = true;
-            this.lblEditando.Location = new System.Drawing.Point(171, 38);
+            this.lblEditando.Location = new System.Drawing.Point(113, 33);
             this.lblEditando.Name = "lblEditando";
             this.lblEditando.Size = new System.Drawing.Size(89, 13);
             this.lblEditando.TabIndex = 18;
@@ -199,6 +200,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(381, 56);
             this.panel1.TabIndex = 23;
+            this.panel1.Visible = false;
             // 
             // btnSalvar
             // 
@@ -221,7 +223,7 @@
             this.Controls.Add(this.comboBoxDisp);
             this.Controls.Add(this.txtPreco);
             this.Controls.Add(this.txtModelo);
-            this.Controls.Add(this.txtmarca);
+            this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.txtDesc);
             this.Controls.Add(this.txtPlaca);
             this.Controls.Add(this.lblDisponivel);
@@ -250,7 +252,7 @@
         private System.Windows.Forms.Label lblPlaca;
         private System.Windows.Forms.TextBox txtPlaca;
         private System.Windows.Forms.TextBox txtDesc;
-        private System.Windows.Forms.TextBox txtmarca;
+        private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.TextBox txtPreco;
         private System.Windows.Forms.ComboBox comboBoxDisp;
